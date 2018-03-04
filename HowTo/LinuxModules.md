@@ -32,17 +32,17 @@ Remove a module
 
 # 2) - Build Linux Kernel Module Against Installed Kernel 
 
-# Install kernel headers
+Install kernel headers
 ```
 apt-get install linux-headers-$(uname -r)
 ```
 
-# Change the Makefile to use current kernel build directory 
+Change the Makefile to use current kernel build directory 
 ```
 ls -d /lib/modules/$(uname -r)/build
 ```
 
-# Create the make file for hello.c program pointing to this directory
+Create the make file for hello.c program pointing to this directory
 ```
 vi Makefile
 obj-m += hello.o
@@ -60,7 +60,7 @@ PWD := $(shell pwd)
 default:
         $(MAKE) -C $(KDIR) SUBDIRS=$(PWD) modules
 ```
-# Compile
+Compile
 ```
 $ make
 ```
